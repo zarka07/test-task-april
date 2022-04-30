@@ -1,6 +1,11 @@
 <template>
     <div class="main">
-        <div v-if="showImg">
+        <div class="Progress" v-if="!showImg">
+            <div class="bar"
+                :style = "{background:barColor, width:barPercent+'%'}">
+            </div>
+        </div>
+        <div class="img" v-if="showImg">
             <img alt="logo" src="../assets/goroskop.png">
         
             <p class="title">
@@ -10,7 +15,9 @@
                 К сожалению, 2020 год принес нам немало неприятностей, даже откровенных проблем и несчастий. Не смотря на это, 3 знака зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
             </p>
         </div>
-        <!-- <p>{{questions[0].description.style}}</p> -->
+        
+        
+        
         <question-component 
             :questions="questions[i]"
             @nextQuestion="nextQuestion">
@@ -29,6 +36,8 @@ export default {
     },
     data(){
         return{
+            barColor: '#B53E42',
+            barPercent: 0,
             title:'',
             i:0,
             showImg: true,
@@ -96,16 +105,16 @@ export default {
             
         }
     },
-    mounted(){
-        
-        
-    },
+    
     methods:{
         nextQuestion(){
-                this.showImg=false,
+                this.showImg=false
                 this.i+=1
                 this.questions[this.i]
-        }
+                this.barPercent+=20;
+                //this.elem.style.width = this.width+"%"
+        },
+        
     }
 
 }
@@ -137,5 +146,19 @@ export default {
         margin-right:0.5em;
         
         font-size: 1.05em;
+    }
+
+    .Progress {
+        float:left;
+        width: 100%;
+        background-color: #F3F4F8;
+        margin-top:2em;
+        margin-bottom:2em;
+    }
+
+    .bar {
+        width: 0%;
+        height: 0.5em;
+        background-color: #B53E42;
     }
 </style>

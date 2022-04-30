@@ -72,7 +72,6 @@ export default {
         font-size: 1.1em;
     }
     .formDescription{
-        
         font-size: 1.1em;
         padding:1em;
         background-color:rgba(225, 226, 230, 0.954);;
