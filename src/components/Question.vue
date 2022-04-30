@@ -1,15 +1,14 @@
 <template>
     <div>
         <form class="form">
-            <div class="formTitle" :title="title">{{title}}</div>
+            <div class="formTitle" :title="questions[0].title">{{questions[0].title}}</div>
             <div class="formDescription">
-                <div class="container" >
-                    <div v-for="question in questions" :key="question.id">
+                <div class="container" :style="questions[0].style">
+                    <div style="text-align:left" v-for="question in questions" :key="question.id">
                         <input :id="question.id" 
                             class="custom-checkbox" 
                             name="gender" 
                             type="radio" 
-                            :value="question.value"
                             @click="showButton()">
                         <label :for="question.id"> {{question.answer}}</label>
                         <!-- <input id="id2" 
@@ -21,15 +20,14 @@
                             <label for="id2"> Мужчина</label> -->
                     </div>
                 </div>
-                <p class="submit" v-if="show">
+            </div>
+            <p class="submit" v-if="show">
                     <button type="submit"
                         class="submitButton"
                         @click.prevent="submit"
                      >ДАЛЕЕ
                     </button>
-                </p>
-            </div>
-            
+            </p>
         </form>
     </div>
 </template>
@@ -37,7 +35,7 @@
 <script>
 export default {
     name: 'question-component',
-    props:['title','questions'],
+    props:['questions'],
     setup() {
         
     },
@@ -54,6 +52,7 @@ export default {
         submit(){
             this.$emit('nextQuestion')
         }
+        
     }
 }
 </script>
@@ -61,7 +60,6 @@ export default {
 <style>
     .form{
         width:100%;
-        
     }
 
     .formTitle{
@@ -75,18 +73,12 @@ export default {
     .formDescription{
         
         font-size: 1.1em;
-        padding:0.8em;
+        padding:1em;
         background-color:rgba(225, 226, 230, 0.954);;
     }
 
     .container{
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .clas{
-        flex-direction: column;
     }
 
     .submit{
@@ -111,7 +103,7 @@ export default {
 
     .custom-checkbox+label {
     display: inline-flex;
-    align-items: center;
+    align-items:center;
     user-select: none;
   }
   /* создание в label псевдоэлемента  before со следующими стилями */

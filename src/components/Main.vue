@@ -13,11 +13,10 @@
         
         <question-component 
             :title="title" 
-             
-            :questions="pagequestions" 
+            :style="questions[i].style"
+            :questions="questions[i]" 
             @nextQuestion="nextQuestion">
         </question-component>
-        
     </div>
 </template>
 
@@ -32,27 +31,62 @@ export default {
     },
     data(){
         return{
+            i:0,
             showImg: true,
-            title: '',
-            pagequestions:[],
+            questions:[
+                        [
+                            {style:'flex-direction: row;justify-content: space-around;',
+                            title: 'Укажите свой пол:',id: 'id0', answer:'Женщина'},
+                            {id:'id1', answer:'Мужчина'}
+                        ],
+                        [
+                            {style:'flex-direction: column;gap:30px;justify-content: flex-start;',
+                            title: 'В какое время суток вы чувствуете себя наиболее комфортно?',id: 'id0', answer:'Утро'},
+                            {id:'id1', answer:'Ночь'},
+                            {id:'id2', answer:'Вечер'},
+                            {id:'id3', answer:'День'}
+                        ],
+                        [
+                            {style:'flex-direction: column;gap:30px;',
+                            title: 'Подскажите, мучает ли вас бессонница в последнее время?',id: 'id0', answer:'Да'},
+                            {id:'id1', answer:'Нет'},
+                            {id:'id2', answer:'Иногда'}
+                        ],
+                        [
+                            {style:'flex-direction: column;gap:30px;',
+                            title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',id: 'id0', answer:'Да'},
+                            {id:'id1', answer:'Нет'},
+                            {id:'id2', answer:'Иногда'}
+                        ],
+                        [
+                            {style:'flex-direction: column;gap:30px;',
+                            title: 'Какой вы видите свою жизнь через 5 лет?',id: 'id0', answer:'Брак, семья, дети, дом'},
+                            {id:'id1', answer:'Путешествия по миру'},
+                            {id:'id2', answer:'Успешная карьера'},
+                            {id:'id3', answer:'Всё вместе'},
+                        ],
+                        [
+                            {style:'flex-direction: column;gap:30px;',
+                            title: 'Введите дату своего рождения',id: 'id0', answer:'Брак, семья, дети, дом'},
+                            {id:'id1', answer:'Путешествия по миру'},
+                            {id:'id2', answer:'Успешная карьера'},
+                            {id:'id3', answer:'Всё вместе'},
+                        ],
+                    ],
             
         }
     },
     mounted(){
-        this.title = 'Укажите свой пол:'
         
-        this.pagequestions = [{id: 'id1', answer:'Женщина', value:'female'},
-                        {id:'id2', answer:'Мужчина', value:'male'}]
+        
     },
     methods:{
         nextQuestion(){
-            this.showImg=false,
-            this.title = 'В какое время суток вы чувствуете себя наиболее комфортно?'
+            while(this.i!=6){
+                this.showImg=false,
+                this.pagequestions[this.i++]
+            }
             
-            this.pagequestions = [{id: 'id1', answer:'Утро', value:'morning'},
-                        {id:'id2', answer:'Ночь', value:'night'},
-                        {id:'id3', answer:'Вечер', value:'evening'},
-                        {id:'id4', answer:'День', value:'day'}]
         }
     }
 

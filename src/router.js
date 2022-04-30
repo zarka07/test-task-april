@@ -7,6 +7,7 @@ const routes = [
 		name: 'Main',
 		component: Main,
 	},
+	
 	// {
 	// 	path: '/project3/product/:id',
 	// 	name: 'ProductId',
