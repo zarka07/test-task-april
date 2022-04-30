@@ -1,23 +1,23 @@
+  
 <template>
     <div>
         <form class="form">
-            <div class="formTitle" :title="questions[0].title">{{questions[0].title}}</div>
+            <div class="formTitle" 
+                :title="questions[0].title">
+                {{questions[0].title}}
+            </div>
             <div class="formDescription">
                 <div class="container" :style="questions[0].style">
+                    
                     <div style="text-align:left" v-for="question in questions" :key="question.id">
+                        {{question.id}}
                         <input :id="question.id" 
                             class="custom-checkbox" 
                             name="gender" 
                             type="radio" 
                             @click="showButton()">
                         <label :for="question.id"> {{question.answer}}</label>
-                        <!-- <input id="id2" 
-                            class="custom-checkbox" 
-                            name="gender" 
-                            type="radio" 
-                            value="male"
-                            @click="showButton()">
-                            <label for="id2"> Мужчина</label> -->
+                        
                     </div>
                 </div>
             </div>
@@ -42,7 +42,6 @@ export default {
     data(){
         return{
             show:false,
-            
         }
     },
     methods:{
@@ -61,7 +60,6 @@ export default {
     .form{
         width:100%;
     }
-
     .formTitle{
         background-color: rgb(52, 59, 77);
         color: white;
@@ -69,23 +67,19 @@ export default {
         padding: 1.5em;
         font-size: 1.1em;
     }
-
     .formDescription{
         
         font-size: 1.1em;
         padding:1em;
         background-color:rgba(225, 226, 230, 0.954);;
     }
-
     .container{
         display: flex;
     }
-
     .submit{
         
         text-align: center;
     }
-
     .submitButton{
         font-size: 1em;
         color: #FFF;
@@ -100,7 +94,6 @@ export default {
         z-index: -1;
         opacity: 0;
     }
-
     .custom-checkbox+label {
     display: inline-flex;
     align-items:center;
@@ -132,7 +125,6 @@ export default {
   .custom-checkbox:disabled+label::before {
     background-color: #FFF;
   }
-
   .custom-checkbox:checked+label{
       color:rgb(49, 93, 250);
       font-weight: 500;

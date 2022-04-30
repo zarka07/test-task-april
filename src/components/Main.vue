@@ -31,43 +31,51 @@ export default {
     },
     data(){
         return{
+            title:'',
             i:0,
             showImg: true,
             questions:[
                         [
                             {style:'flex-direction: row;justify-content: space-around;',
-                            title: 'Укажите свой пол:',id: 'id0', answer:'Женщина'},
+                            title: 'Укажите свой пол:'},
+                            {id: 'id0', answer:'Женщина'},
                             {id:'id1', answer:'Мужчина'}
+                            
                         ],
                         [
                             {style:'flex-direction: column;gap:30px;justify-content: flex-start;',
-                            title: 'В какое время суток вы чувствуете себя наиболее комфортно?',id: 'id0', answer:'Утро'},
+                            title: 'В какое время суток вы чувствуете себя наиболее комфортно?'},
+                            {id:'id0', answer:'Утро'},
                             {id:'id1', answer:'Ночь'},
                             {id:'id2', answer:'Вечер'},
                             {id:'id3', answer:'День'}
                         ],
                         [
                             {style:'flex-direction: column;gap:30px;',
-                            title: 'Подскажите, мучает ли вас бессонница в последнее время?',id: 'id0', answer:'Да'},
+                            title: 'Подскажите, мучает ли вас бессонница в последнее время?'},
+                            {id:'id0', answer:'Да'},
                             {id:'id1', answer:'Нет'},
                             {id:'id2', answer:'Иногда'}
                         ],
                         [
                             {style:'flex-direction: column;gap:30px;',
-                            title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',id: 'id0', answer:'Да'},
+                            title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?'},
+                            {id:'id0', answer:'Да'},
                             {id:'id1', answer:'Нет'},
                             {id:'id2', answer:'Иногда'}
                         ],
                         [
                             {style:'flex-direction: column;gap:30px;',
-                            title: 'Какой вы видите свою жизнь через 5 лет?',id: 'id0', answer:'Брак, семья, дети, дом'},
+                            title: 'Какой вы видите свою жизнь через 5 лет?'},
+                            {id:'id0', answer:'Брак, семья, дети, дом'},
                             {id:'id1', answer:'Путешествия по миру'},
                             {id:'id2', answer:'Успешная карьера'},
                             {id:'id3', answer:'Всё вместе'},
                         ],
                         [
                             {style:'flex-direction: column;gap:30px;',
-                            title: 'Введите дату своего рождения',id: 'id0', answer:'Брак, семья, дети, дом'},
+                            title: 'Введите дату своего рождения'},
+                            {id:'id0', answer:'Брак, семья, дети, дом'},
                             {id:'id1', answer:'Путешествия по миру'},
                             {id:'id2', answer:'Успешная карьера'},
                             {id:'id3', answer:'Всё вместе'},
