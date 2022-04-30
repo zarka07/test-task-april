@@ -3,17 +3,15 @@
     <div>
         <form class="form">
             <div class="formTitle" 
-                :title="questions[0].title">
-                {{questions[0].title}}
+                :title="questions.description.title">
+                {{questions.description.title}}
             </div>
             <div class="formDescription">
-                <div class="container" :style="questions[0].style">
-                    
-                    <div style="text-align:left" v-for="question in questions" :key="question.id">
-                        {{question.id}}
+                <div class="container" :style="questions.description.style">
+                    <div style="text-align:left" v-for="(question, index) in questions.questions" :key="index">
                         <input :id="question.id" 
-                            class="custom-checkbox" 
-                            name="gender" 
+                            class="custom-checkbox"
+                            name="name"
                             type="radio" 
                             @click="showButton()">
                         <label :for="question.id"> {{question.answer}}</label>
@@ -42,6 +40,8 @@ export default {
     data(){
         return{
             show:false,
+            title:'',
+            style:''
         }
     },
     methods:{

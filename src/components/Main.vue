@@ -10,11 +10,9 @@
                 К сожалению, 2020 год принес нам немало неприятностей, даже откровенных проблем и несчастий. Не смотря на это, 3 знака зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
             </p>
         </div>
-        
+        <!-- <p>{{questions[0].description.style}}</p> -->
         <question-component 
-            :title="title" 
-            :style="questions[i].style"
-            :questions="questions[i]" 
+            :questions="questions[i]"
             @nextQuestion="nextQuestion">
         </question-component>
     </div>
@@ -35,51 +33,65 @@ export default {
             i:0,
             showImg: true,
             questions:[
-                        [
-                            {style:'flex-direction: row;justify-content: space-around;',
-                            title: 'Укажите свой пол:'},
-                            {id: 'id0', answer:'Женщина'},
-                            {id:'id1', answer:'Мужчина'}
+                        {
+                            description:{
+                                style:'flex-direction: row;justify-content: space-around;',
+                                title: 'Укажите свой пол:'
+                            },
+                            questions:[
+                                {id:'id0', answer:'Женщина'},
+                                {id:'id1', answer:'Мужчина'}
+                            ]
                             
-                        ],
-                        [
-                            {style:'flex-direction: column;gap:30px;justify-content: flex-start;',
-                            title: 'В какое время суток вы чувствуете себя наиболее комфортно?'},
-                            {id:'id0', answer:'Утро'},
-                            {id:'id1', answer:'Ночь'},
-                            {id:'id2', answer:'Вечер'},
-                            {id:'id3', answer:'День'}
-                        ],
-                        [
-                            {style:'flex-direction: column;gap:30px;',
-                            title: 'Подскажите, мучает ли вас бессонница в последнее время?'},
-                            {id:'id0', answer:'Да'},
-                            {id:'id1', answer:'Нет'},
-                            {id:'id2', answer:'Иногда'}
-                        ],
-                        [
-                            {style:'flex-direction: column;gap:30px;',
-                            title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?'},
-                            {id:'id0', answer:'Да'},
-                            {id:'id1', answer:'Нет'},
-                            {id:'id2', answer:'Иногда'}
-                        ],
-                        [
-                            {style:'flex-direction: column;gap:30px;',
-                            title: 'Какой вы видите свою жизнь через 5 лет?'},
-                            {id:'id0', answer:'Брак, семья, дети, дом'},
-                            {id:'id1', answer:'Путешествия по миру'},
-                            {id:'id2', answer:'Успешная карьера'},
-                            {id:'id3', answer:'Всё вместе'},
-                        ],
-                        [
-                            {style:'flex-direction: column;gap:30px;',
-                            title: 'Введите дату своего рождения'},
-                            {id:'id0', answer:'Брак, семья, дети, дом'},
-                            {id:'id1', answer:'Путешествия по миру'},
-                            {id:'id2', answer:'Успешная карьера'},
-                            {id:'id3', answer:'Всё вместе'},
-                        ],
+                        },
+                        {
+                            description:{
+                                style:'flex-direction: column;gap:30px;justify-content: flex-start;',
+                                title: 'В какое время суток вы чувствуете себя наиболее комфортно?'
+                            },
+                            questions:[
+                                {id:'id0', answer:'Утро'},
+                                {id:'id1', answer:'Ночь'},
+                                {id:'id2', answer:'Вечер'},
+                                {id:'id3', answer:'День'}
+                            ]
+                        },
+                        {
+                            description:{
+                                style:'flex-direction: column;gap:30px;',
+                                title: 'Подскажите, мучает ли вас бессонница в последнее время?'
+                            },
+                            questions:[
+                                {id:'id0', answer:'Да'},
+                                {id:'id1', answer:'Нет'},
+                                {id:'id2', answer:'Иногда'}
+                            ]
+                        },
+                        {
+                            description:{
+                                style:'flex-direction: column;gap:30px;',
+                                title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?'
+                            },
+                            questions:[
+                                {id:'id0', answer:'Да'},
+                                {id:'id1', answer:'Нет'},
+                                {id:'id2', answer:'Иногда'}
+                            ]
+                        },
+                        {
+                            description:{
+                                style:'flex-direction: column;gap:30px;',
+                                title: 'Какой вы видите свою жизнь через 5 лет?'
+                            },
+                            questions:[
+                                {id:'id0', answer:'Брак, семья, дети, дом'},
+                                {id:'id1', answer:'Путешествия по миру'},
+                                {id:'id2', answer:'Успешная карьера'},
+                                {id:'id3', answer:'Всё вместе'}
+                            ]
+                            
+                        },
+                        
                     ],
             
         }
@@ -90,10 +102,11 @@ export default {
     },
     methods:{
         nextQuestion(){
-            while(this.i!=6){
+            
                 this.showImg=false,
-                this.pagequestions[this.i++]
-            }
+                this.i+=1
+                this.questions[this.i]
+            
             
         }
     }
