@@ -36,58 +36,58 @@ export default {
                         {
                             description:{
                                 style:'flex-direction: row;justify-content: space-around;',
-                                title: 'Укажите свой пол:'
+                                title: 'Укажите свой пол:',
                             },
                             questions:[
-                                {id:'id0', answer:'Женщина'},
-                                {id:'id1', answer:'Мужчина'}
+                                {id:'id0', answer:'Женщина', type: 'radio'},
+                                {id:'id1', answer:'Мужчина', type: 'radio'}
                             ]
                             
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;justify-content: flex-start;',
-                                title: 'В какое время суток вы чувствуете себя наиболее комфортно?'
+                                title: 'В какое время суток вы чувствуете себя наиболее комфортно?',
                             },
                             questions:[
-                                {id:'id0', answer:'Утро'},
-                                {id:'id1', answer:'Ночь'},
-                                {id:'id2', answer:'Вечер'},
-                                {id:'id3', answer:'День'}
+                                {id:'id0', answer:'Утро', type: 'radio'},
+                                {id:'id1', answer:'Ночь', type: 'radio'},
+                                {id:'id2', answer:'Вечер', type: 'radio'},
+                                {id:'id3', answer:'День', type: 'radio'}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;',
-                                title: 'Подскажите, мучает ли вас бессонница в последнее время?'
+                                title: 'Подскажите, мучает ли вас бессонница в последнее время?',
                             },
                             questions:[
-                                {id:'id0', answer:'Да'},
-                                {id:'id1', answer:'Нет'},
-                                {id:'id2', answer:'Иногда'}
+                                {id:'id0', answer:'Да', type: 'radio'},
+                                {id:'id1', answer:'Нет', type: 'radio'},
+                                {id:'id2', answer:'Иногда', type: 'radio'}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;',
-                                title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?'
+                                title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',
                             },
                             questions:[
-                                {id:'id0', answer:'Да'},
-                                {id:'id1', answer:'Нет'},
-                                {id:'id2', answer:'Иногда'}
+                                {id:'id0', answer:'Да', type: 'radio'},
+                                {id:'id1', answer:'Нет', type: 'radio'},
+                                {id:'id2', answer:'Иногда', type: 'radio'}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;',
-                                title: 'Какой вы видите свою жизнь через 5 лет?'
+                                title: 'Какой вы видите свою жизнь через 5 лет?',
                             },
                             questions:[
-                                {id:'id0', answer:'Брак, семья, дети, дом'},
-                                {id:'id1', answer:'Путешествия по миру'},
-                                {id:'id2', answer:'Успешная карьера'},
-                                {id:'id3', answer:'Всё вместе'}
+                                {id:'id0', answer:'Брак, семья, дети, дом', type: 'radio'},
+                                {id:'id1', answer:'Путешествия по миру', type: 'radio'},
+                                {id:'id2', answer:'Успешная карьера', type: 'radio'},
+                                {id:'id3', answer:'Всё вместе', type: 'radio'}
                             ]
                             
                         },
@@ -102,12 +102,9 @@ export default {
     },
     methods:{
         nextQuestion(){
-            
                 this.showImg=false,
                 this.i+=1
                 this.questions[this.i]
-            
-            
         }
     }
 

@@ -9,13 +9,17 @@
             <div class="formDescription">
                 <div class="container" :style="questions.description.style">
                     <div style="text-align:left" v-for="(question, index) in questions.questions" :key="index">
-                        <input :id="question.id" 
+                        <div v-if="question.type==='radio'">
+                        <input :id="question.id"
                             class="custom-checkbox"
                             name="name"
-                            type="radio" 
+                            :type="question.type" 
                             @click="showButton()">
                         <label :for="question.id"> {{question.answer}}</label>
-                        
+                        </div>
+                        <div v-else>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
