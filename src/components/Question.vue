@@ -28,17 +28,17 @@
                                 </option>
                             </select> 
 
-                            <select id="month" v-model="selectedDate.month" >
+                            <select id="month" v-model="selected" @change="selectSign(selected)">
                                 <option disabled value="">Месяц</option>
                                 <option v-for="(value, index) in 12" :key="index">{{index+1}} </option>
                             </select>
 
-                            <select id="year" v-model="selectedDate.year" @click="selectSign(selectedDate.month)">
+                            <select id="year" v-model="selectedDate.year" >
                                 <option disabled value="">Год</option>
                                 <option v-for="(year, index) in years" :key="index">{{year}}</option>
                             </select>
                             <div v-if="selectedDate.year" >
-                                
+                                {{selected}}
                                 <img :src="'zodiac/'+src"/>
                             </div>
                         </div>
@@ -91,9 +91,8 @@ export default {
                 2006,
                 2007
             ],
-            selectedDate:[
-                this.day, this.month, this.year
-            ],
+            selectedDate:[this.day, this.month, this.year],
+            selected: 0,
             src: ''
         }
     },
@@ -106,9 +105,9 @@ export default {
             this.$emit('nextQuestion')
         },
         selectSign(sign){
+            console.log('sign: '+sign)
             switch(sign){
                 case 1:
-                    console.log('1')
                     this.src = 'vodolej.png'
                     break;
                 case 2:
