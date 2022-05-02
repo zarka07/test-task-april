@@ -7,18 +7,40 @@
                 {{questions.description.title}}
             </div>
             <div class="formDescription">
-                <div class="container" :style="questions.description.style">
-                    <div style="text-align:left" v-for="(question, index) in questions.questions" :key="index">
+                <div class="container" :style="questions.description.style" >
+                    <div v-for="(question, index) in questions.questions" :key="index">
                         <div v-if="question.type==='radio'">
-                        <input :id="question.id"
-                            class="custom-checkbox"
-                            name="name"
-                            :type="question.type" 
-                            @click="showButton()">
-                        <label :for="question.id"> {{question.answer}}</label>
-                        </div>
-                        <div v-else>
-                            
+                            <input :id="question.id"
+                                class="custom-checkbox"
+                                name="name"
+                                :type="question.type" 
+                                @click="showButton()">
+                            <label :for="question.id"> {{question.answer}}</label>
+                            </div>
+                        <div v-else class="custom-picker">
+                            <select id="day" v-model="selectedDate.day">
+                                <option disabled value="">День</option>
+                                <option 
+                                    v-for="(value, index) in 31" 
+                                    :key="index" 
+                                    class="option"
+                                >{{index+1}}
+                                </option>
+                            </select> 
+
+                            <select id="month" v-model="selectedDate.month" >
+                                <option disabled value="">Месяц</option>
+                                <option v-for="(value, index) in 12" :key="index">{{index+1}} </option>
+                            </select>
+
+                            <select id="year" v-model="selectedDate.year" @click="selectSign(selectedDate.month)">
+                                <option disabled value="">Год</option>
+                                <option v-for="(year, index) in years" :key="index">{{year}}</option>
+                            </select>
+                            <div v-if="selectedDate.year" >
+                                
+                                <img :src="'zodiac/'+src"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,7 +67,34 @@ export default {
         return{
             show:false,
             title:'',
-            style:''
+            style:'',
+            day:'День',
+            month:'Месяц',
+            year: 'Год',
+            years:[
+                1990,
+                1991,
+                1992,
+                1993,
+                1994,
+                1995,
+                1996,
+                1997,
+                1998,
+                1999,
+                2000,
+                2001,
+                2002,
+                2003,
+                2004,
+                2005,
+                2006,
+                2007
+            ],
+            selectedDate:[
+                this.day, this.month, this.year
+            ],
+            src: ''
         }
     },
     methods:{
@@ -53,9 +102,54 @@ export default {
             this.show = true;
         },
         submit(){
+            this.show = false;
             this.$emit('nextQuestion')
+        },
+        selectSign(sign){
+            switch(sign){
+                case 1:
+                    console.log('1')
+                    this.src = 'vodolej.png'
+                    break;
+                case 2:
+                    this.src = 'ribi.png'
+                    break;
+                case 3:
+                    this.src = 'oven.png'
+                    break;
+                case 4:
+                    this.src = 'telec.png'
+                    break;
+                case 5:
+                    this.src = 'blizneci.png'
+                    break;
+                case 6:
+                    this.src = 'rak.png'
+                    break;
+                case 7:
+                    this.src = 'lev.png'
+                    break;
+                case 8:
+                    this.src = 'deva.png'
+                    break;
+                case 9:
+                    this.src = 'vesi.png'
+                    break;
+                case 10:
+                    this.src = 'skorpion.png'
+                    break;
+                case 11:
+                    this.src = 'strelez.png'
+                    break;
+                case 12:
+                    this.src = 'kozerog.png'
+                    break;
+                default:
+                    null;
+            }
+            return this.src
+            
         }
-        
     }
 }
 </script>
@@ -90,6 +184,18 @@ export default {
         border:0em;
         height: 3em;
         width:11em;
+    }
+
+    .custom-picker{
+        width: 100%;
+        display:grid;
+    }
+    
+    #day,#month,#year{
+        width:50%;
+        height: 3em;
+        margin-left:25%;
+        margin-bottom:1em;
     }
     
     .custom-checkbox{
