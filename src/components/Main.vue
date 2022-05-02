@@ -44,7 +44,7 @@ export default {
             questions:[
                         {
                             description:{
-                                style:'flex-direction: row;justify-content: space-around;',
+                                style:'flex-direction: row;justify-content: space-around;text-align:left',
                                 title: 'Укажите свой пол:',
                             },
                             questions:[
@@ -55,7 +55,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;justify-content: flex-start;',
+                                style:'flex-direction: column;gap:30px;justify-content: flex-start;text-align:left',
                                 title: 'В какое время суток вы чувствуете себя наиболее комфортно?',
                             },
                             questions:[
@@ -67,7 +67,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;',
+                                style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Подскажите, мучает ли вас бессонница в последнее время?',
                             },
                             questions:[
@@ -78,7 +78,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;',
+                                style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',
                             },
                             questions:[
@@ -89,7 +89,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;',
+                                style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Какой вы видите свою жизнь через 5 лет?',
                             },
                             questions:[
@@ -97,6 +97,19 @@ export default {
                                 {id:'id1', answer:'Путешествия по миру', type: 'radio'},
                                 {id:'id2', answer:'Успешная карьера', type: 'radio'},
                                 {id:'id3', answer:'Всё вместе', type: 'radio'}
+                            ]
+                            
+                        },
+                        {
+                            description:{
+                                style:'flex-direction: column;gap:30px;text-align:center',
+                                title: 'Введите дату своего рождения:',
+                            },
+                            questions:[
+                                {id:'id0', answer:'date', type: 'select'},
+                                // {id:'id1', answer:'Путешествия по миру', type: 'radio'},
+                                // {id:'id2', answer:'Успешная карьера', type: 'radio'},
+                                // {id:'id3', answer:'Всё вместе', type: 'radio'}
                             ]
                             
                         },

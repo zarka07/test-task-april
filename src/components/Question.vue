@@ -28,18 +28,19 @@
                                 </option>
                             </select> 
 
-                            <select id="month" v-model="selected" @change="selectSign(selected)">
+                            <select id="month" v-model="selectedDate.month" @change="selectSign(selectedDate.month)">
                                 <option disabled value="">Месяц</option>
                                 <option v-for="(value, index) in 12" :key="index">{{index+1}} </option>
                             </select>
 
-                            <select id="year" v-model="selectedDate.year" >
+                            <select id="year" v-model="selectedDate.year" @change="checkAll()">
                                 <option disabled value="">Год</option>
                                 <option v-for="(year, index) in years" :key="index">{{year}}</option>
                             </select>
-                            <div v-if="selectedDate.year" >
-                                {{selected}}
-                                <img :src="'zodiac/'+src"/>
+
+                            <div v-if="selectedDate.month" @click="checkAll()">
+                                <img class="zodiac" :src="'zodiac/'+src"/>
+                                <p class="zodiac-description">{{description}}</p>
                             </div>
                         </div>
                     </div>
@@ -68,9 +69,6 @@ export default {
             show:false,
             title:'',
             style:'',
-            day:'День',
-            month:'Месяц',
-            year: 'Год',
             years:[
                 1990,
                 1991,
@@ -91,9 +89,9 @@ export default {
                 2006,
                 2007
             ],
-            selectedDate:[this.day, this.month, this.year],
-            selected: 0,
-            src: ''
+            selectedDate:{},
+            src: '',
+            description:''
         }
     },
     methods:{
@@ -105,48 +103,66 @@ export default {
             this.$emit('nextQuestion')
         },
         selectSign(sign){
-            console.log('sign: '+sign)
             switch(sign){
-                case 1:
+                case '1':
                     this.src = 'vodolej.png'
+                    this.description = 'Водолей'
                     break;
-                case 2:
+                case '2':
                     this.src = 'ribi.png'
+                    this.description = 'Рыбы'
                     break;
-                case 3:
+                case '3':
                     this.src = 'oven.png'
+                    this.description = 'Овен'
                     break;
-                case 4:
+                case '4':
                     this.src = 'telec.png'
+                    this.description = 'Телец'
                     break;
-                case 5:
+                case '5':
                     this.src = 'blizneci.png'
+                    this.description = 'Близнецы'
                     break;
-                case 6:
+                case '6':
                     this.src = 'rak.png'
+                    this.description = 'Рак'
                     break;
-                case 7:
+                case '7':
                     this.src = 'lev.png'
+                    this.description = 'Лев'
                     break;
-                case 8:
+                case '8':
                     this.src = 'deva.png'
+                    this.description = 'Дева'
                     break;
-                case 9:
+                case '9':
                     this.src = 'vesi.png'
+                    this.description = 'Весы'
                     break;
-                case 10:
+                case '10':
                     this.src = 'skorpion.png'
+                    this.description = 'Скорпион'
                     break;
-                case 11:
+                case '11':
                     this.src = 'strelez.png'
+                    this.description = 'Стрелец'
                     break;
-                case 12:
+                case '12':
                     this.src = 'kozerog.png'
+                    this.description = 'Козерог'
                     break;
                 default:
-                    null;
+                    console.log('nothing');
             }
-            return this.src
+            return this.src, this.description
+            
+        },
+        checkAll(){
+            if(this.selectedDate.year&&this.selectedDate.month&&this.selectedDate.day){
+                this.show = true
+            }
+                
             
         }
     }
@@ -179,7 +195,7 @@ export default {
     .submitButton{
         font-size: 1em;
         color: #FFF;
-        background-color:rgb(49, 93, 250);
+        background-color:#315DFA;
         border:0em;
         height: 3em;
         width:11em;
@@ -236,5 +252,14 @@ export default {
   .custom-checkbox:checked+label{
       color:rgb(49, 93, 250);
       font-weight: 500;
+  }
+
+  .zodiac{
+      width:5em;
+      height:5em;
+  }
+
+  .zodiac-description{
+      margin-top: 0;
   }
 </style>

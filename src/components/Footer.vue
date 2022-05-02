@@ -15,7 +15,8 @@ export default {
 
 <style>
     .footer{
-        position:relative; 
+        position:relative;
+        height:1.5em; 
         bottom: 0;
         padding: 10px;
         color: rgba(225, 226, 230, 0.954);
