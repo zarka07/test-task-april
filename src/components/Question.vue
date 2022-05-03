@@ -30,23 +30,34 @@
 
                             <select id="month" v-model="selectedDate.month" @change="selectSign(selectedDate.month)">
                                 <option disabled value="">Месяц</option>
-                                <option v-for="(value, index) in 12" :key="index">{{index+1}} </option>
+                                <option 
+                                    v-for="(value, index) in 12" 
+                                    :key="index"
+                                >{{index+1}} </option>
                             </select>
 
                             <select id="year" v-model="selectedDate.year" @change="checkAll()">
                                 <option disabled value="">Год</option>
-                                <option v-for="(year, index) in years" :key="index">{{year}}</option>
+                                <option 
+                                    v-for="(year, index) in years" 
+                                    :key="index"
+                                >{{year}}</option>
                             </select>
+
+                            <p class="showError" v-if="!showSubmit">
+                                Пожалуйста, выберите ответ
+                            </p>
 
                             <div v-if="selectedDate.month" @click="checkAll()">
                                 <img class="zodiac" :src="'zodiac/'+src"/>
-                                <p class="zodiac-description">{{description}}</p>
+                                <div class="zodiac-description">{{description}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="submit" v-if="show">
+
+            <p class="submit" v-if="showSubmit">
                     <button type="submit"
                         class="submitButton"
                         @click.prevent="submit"
@@ -66,7 +77,7 @@ export default {
     },
     data(){
         return{
-            show:false,
+            showSubmit:false,
             title:'',
             style:'',
             years:[
@@ -96,10 +107,10 @@ export default {
     },
     methods:{
         showButton(){
-            this.show = true;
+            this.showSubmit = true;
         },
         submit(){
-            this.show = false;
+            this.showSubmit = false;
             this.$emit('nextQuestion')
         },
         selectSign(sign){
@@ -160,9 +171,8 @@ export default {
         },
         checkAll(){
             if(this.selectedDate.year&&this.selectedDate.month&&this.selectedDate.day){
-                this.show = true
+                this.showSubmit = true
             }
-                
             
         }
     }
@@ -170,35 +180,53 @@ export default {
 </script>
 
 <style>
+    .showError{
+        width: 100%;
+        height: 36px;
+        padding-top:3vh;
+        text-align: center;
+        color: #D0060E;
+        background-color: #FFD8CF;
+        font-family: 'Roboto';
+        font-weight: 300;
+    }
+
+    select{
+        padding-left:1em;
+    }
+
     .form{
         width:100%;
     }
     .formTitle{
         background-color: rgb(52, 59, 77);
         color: white;
-        font-weight: 700;
+        font-weight: 500 Medium;
         padding: 1.5em;
-        font-size: 1.1em;
+        font-size: 17px;
     }
     .formDescription{
-        font-size: 1.1em;
+        font-size: 14px;
         padding:1em;
-        background-color:rgba(225, 226, 230, 0.954);;
+        background-color:rgba(225, 226, 230, 0.954);
+        font-family: 'Roboto';
+        font-weight: 400;
     }
     .container{
         display: flex;
     }
     .submit{
-        
         text-align: center;
+        
     }
     .submitButton{
-        font-size: 1em;
+        font-size: 14px;
+        font-weight: 700;
         color: #FFF;
         background-color:#315DFA;
-        border:0em;
-        height: 3em;
-        width:11em;
+        border:0;
+        height: 45px;
+        width:50vw;
     }
 
     .custom-picker{
@@ -208,27 +236,32 @@ export default {
     
     #day,#month,#year{
         width:50%;
-        height: 3em;
+        height: 45px;
         margin-left:25%;
-        margin-bottom:1em;
+        margin-bottom:1vh;
     }
     
     .custom-checkbox{
         position: absolute;
         z-index: -1;
         opacity: 0;
+        
     }
     .custom-checkbox+label {
     display: inline-flex;
     align-items:center;
     user-select: none;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
   }
   /* создание в label псевдоэлемента  before со следующими стилями */
   .custom-checkbox+label::before {
+    
     content: '';
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 15px;
+    height: 15px;
     flex-shrink: 0;
     flex-grow: 0;
     border: 1px solid #adb5bd;
@@ -251,15 +284,22 @@ export default {
   }
   .custom-checkbox:checked+label{
       color:rgb(49, 93, 250);
-      font-weight: 500;
+      font-weight: 700 bold;
+      font-family: 'Roboto';
+      font-style: normal;
   }
 
   .zodiac{
-      width:5em;
-      height:5em;
+      width:81px;
+      height:82px;
   }
 
   .zodiac-description{
       margin-top: 0;
+      font-family: 'Roboto';
+      font-size: 12px;
+      font-weight: 400;
   }
+
+  
 </style>

@@ -2,13 +2,11 @@
   <Header/>
   <router-view/>
   <Footer/>
-  <!-- <Name msg="Welcome to Your Vue.js App"/> -->
 </template>
 
 <script>
-//import Name from './components/Name.vue';
+
 import Header from './components/Header.vue';
-//import Main from './components/Main.vue';
 import Footer from './components/Footer.vue';
 
 
@@ -22,7 +20,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

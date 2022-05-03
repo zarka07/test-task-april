@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Main from '@/components/Main.vue';
+
 
 const routes = [
 	{
 		path: '/',
 		name: 'Main',
-		component: Main,
+		component: () => import(/* webpackChunkName: "Main.vue", webpackMode: "lazy" */'./views/Main.vue')
 	},
+	{
+		path: '/dataprocesing',
+		name: 'data-processing',
+		component: () => import(/* webpackChunkName: "DataProcessing.vue", webpackMode: "lazy" */'./views/DataProcessing.vue')
+	}
 	
 	// {
 	// 	path: '/project3/product/:id',

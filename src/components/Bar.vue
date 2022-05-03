@@ -1,0 +1,40 @@
+<template>
+  <div>
+    <div class="Progress" >
+        <div class="bar"
+            :style = "{background:barColor, width:barPercent+'%', height: barHeight+'px'}">
+            <div class="percent" :barProgress="barProgress"> <b>{{barProgress}}</b></div>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+    name: 'progress-bar',
+    props:['barColor', 'barPercent', 'barHeight', 'barProgress'],
+}
+</script>
+
+<style>
+    .Progress {
+        float:left;
+        width: 100%;
+        background-color: #F3F4F8;
+        margin-top:2em;
+        margin-bottom:2em;
+        box-shadow: inset 0px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .bar {
+        width: 0%;
+        background-color: #B53E42;
+        color: #FFF;
+        
+    }
+
+    .percent{
+        font-size:14px;
+        padding-top: 2vh;
+    }
+</style>

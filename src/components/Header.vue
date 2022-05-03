@@ -3,9 +3,9 @@
        <div class="subHeader">
            НОВЫЙ ГОРОСКОП НА 2021 ГОД!
        </div>
-       <p class="subheader">
+       <div class="subheader">
            Узнайте, что вас ждет
-       </p>
+       </div>
     </div>
 </template>
 
@@ -21,21 +21,22 @@ export default {
 <style>
     .header{
         background-color:rgb(49, 93, 250);
-        color: rgb(174, 219, 228);
+        color: #AFDCE5;
         font-weight: 700;
+        height: 57px;
     }
 
     .subHeader{
-        padding-top: 0.8em;
-        padding-bottom: 0.3em;
-        font-size: 1.3em;
+        padding-top: 1vh;
+        font-weight: 700;
+        font-size: 20px;
+        color: #AFDCE6;
     }
 
     .subheader{
-        text-align: start;
-        padding-left: 1em;
-        padding-bottom: 1em;
-        margin: 0;
-        font-size: 0.8em;
+        padding-left: 4vw;
+       font-style: normal;
+        font-size: 13px;
+        text-align: left;
     }
 </style>

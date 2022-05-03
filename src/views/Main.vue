@@ -1,46 +1,50 @@
 <template>
     <div class="main">
-        <div class="Progress" v-if="!showImg">
-            <div class="bar"
-                :style = "{background:barColor, width:barPercent+'%'}">
-            </div>
-        </div>
+        <progress-bar v-if="showProgress" 
+            :barPercent="barPercent" 
+            :barColor="barColor" 
+            :barHeight="barHeight"
+            :barProgress="barProgress"
+        ></progress-bar>
+
         <div class="img" v-if="showImg">
             <img alt="logo" src="../assets/goroskop.png">
         
-            <p class="title">
+            <div class="title">
                 Узнайте, как 2021 год изменит жизнь каждого из нас!
-            </p>
-            <p class="subtitle">
+            </div>
+            <div class="subtitle">
                 К сожалению, 2020 год принес нам немало неприятностей, даже откровенных проблем и несчастий. Не смотря на это, 3 знака зодиака очень скоро обретут долгожданное счастье! 2021 год затронет своими потрясениями каждого из нас.
-            </p>
+            </div>
         </div>
-        
-        
         
         <question-component 
             :questions="questions[i]"
             @nextQuestion="nextQuestion">
         </question-component>
+        
     </div>
 </template>
 
 <script>
-import Question from './Question.vue';
+import Question from '../components/Question.vue';
+import ProgressBar from '../components/Bar.vue';
 
 export default {
     name: 'main-component',
-    components: { 'question-component': Question },
+    components: { 'question-component': Question, 'progress-bar': ProgressBar},
     setup() {
         
     },
     data(){
         return{
+            showProgress: false,
+            showImg: true,
             barColor: '#B53E42',
             barPercent: 0,
-            title:'',
+            barHeight: 8,
+            barProgress:'',
             i:0,
-            showImg: true,
             questions:[
                         {
                             description:{
@@ -107,71 +111,72 @@ export default {
                             },
                             questions:[
                                 {id:'id0', answer:'date', type: 'select'},
-                                // {id:'id1', answer:'Путешествия по миру', type: 'radio'},
-                                // {id:'id2', answer:'Успешная карьера', type: 'radio'},
-                                // {id:'id3', answer:'Всё вместе', type: 'radio'}
                             ]
                             
                         },
-                        
+                        {
+                            description:{
+                                style:'',
+                                title: '',
+                            },
+                            questions:[
+                                {id:'', answer:'', type: ''},
+                            ]
+                            
+                        }
                     ],
-            
         }
     },
     
     methods:{
         nextQuestion(){
-                this.showImg=false
-                this.i+=1
-                this.questions[this.i]
-                this.barPercent+=20;
-                //this.elem.style.width = this.width+"%"
+                    this.showProgress=true
+                    this.showImg=false
+                    this.i+=1
+                    this.questions[this.i]
+                    this.barPercent+=20
         },
         
+    },
+    watch:{
+        i(){
+            if(this.i===6){
+                this.barPercent=100
+                this.showProgress=false
+                this.$router.push({ name: 'data-processing'})
+            }
+        }
     }
 
 }
 </script>
 
 <style>
-    .main{
-        
-    }
-
     img{
-        margin-top: 0.5em;
-        width:95%;
+        margin-top: 1vh;
+        width:98%;
     }
 
     .title{
-        color:rgb(49, 93, 250);
-        font-weight: 700;
         text-align: start;
-        font-size: 1.4em;
-        margin:0.4em;
-
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 22px;
+        color: #315DF9;
+        margin:2vh 1vw 2vh 1vw;
+        
     }
 
     .subtitle{
-        color:rgb(52, 59, 77);
         text-align: start;
-        margin-left:0.5em;
-        margin-right:0.5em;
+        margin:2vh 1vw 2vh 1vw;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18.5px;
+        color: #343B4D;
         
-        font-size: 1.05em;
     }
 
-    .Progress {
-        float:left;
-        width: 100%;
-        background-color: #F3F4F8;
-        margin-top:2em;
-        margin-bottom:2em;
-    }
-
-    .bar {
-        width: 0%;
-        height: 0.5em;
-        background-color: #B53E42;
-    }
+    
 </style>
