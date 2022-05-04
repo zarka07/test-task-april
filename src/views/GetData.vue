@@ -16,13 +16,13 @@
     <div class="getapi">        
       <button class="button-menu" @click.prevent="getApi">
         <span class="menu-icon">
-          <img src="../assets/phone-solid.svg" class=""/>
+          <img src="../assets/Vector.png" class="img"/>
         </span>
         <span class="button-label">Звонить и слушать</span>
       </button>
     </div>
-    <div>
-      
+
+    <div v-if="showResponse" class="response">
     <table>
       <caption>Персонаж:</caption>
       <thead>
@@ -75,6 +75,7 @@ export default {
   data(){
     return{
       response:{},
+      showResponse:false
     }
   },
   methods:{
@@ -88,7 +89,8 @@ export default {
                         console.log(statusCode)      
                     }
                 })
-        this.response = Response.data;  
+        this.response = Response.data; 
+        this.showResponse = true 
         console.log(this.response)     
         },
   }
@@ -118,17 +120,16 @@ export default {
     line-height:40px;
    color:white;
    margin:0 5px;
-   font-size:20px;
   }
 
   .button-menu {
    display:inline-flex;
-   align-items: center;
+   justify-content: center;
   width:95%;
    border:0;
    background-color:#315DFA;
    height:8vh;
-  
+  padding-top:1.1vh;
  }
 
  .button-label {
@@ -138,7 +139,30 @@ export default {
    margin-left:6vw;
  }
 
+ .menu-icon{
+   margin-top:1vh;
+ }
+
  .getapi{
    margin-top:4vh;
  }
+
+ table {
+    width: 300px; 
+    border: 1px solid #315DFA; 
+    margin: auto; 
+ }
+
+ td {
+  text-align: center; 
+ }
+
+.response{
+  margin-top:2vh;
+  margin-bottom:2vh;
+}
+
+caption{
+  margin-bottom:1vh;
+}
 </style>

@@ -14,17 +14,19 @@
         <div v-if="barPercent>45" class="elem">Генерация предсказания .....<i>Выполнено!</i></div>
         <div v-if="barPercent>65" class="elem">Сохранение результата .....<i>Выполнено!</i></div>
         <div v-if="barPercent>75" class="elem">Поиск свободного оператора .....<i>Выполнено!</i></div>
-        <div v-if="barPercent=100" class="elem">Начало озвучки и записи аудио - сообщения .....<i>Выполнено!</i></div>
+        <div v-if="barPercent==100" class="elem">Начало озвучки и записи аудио - сообщения .....<i>Выполнено!</i></div>
+        
         <div class="elem" style="color:#B53E42;"><b>ИДЁТ ЗАПИСЬ</b></div> 
-        <div v-if="barPercent=100" class="elem">ГОТОВО!</div>
+        
+        <div v-if="barPercent==100" class="elem">ГОТОВО!</div>
 
-        <p class="submit" v-if="barPercent=100">
+        <div class="submit" v-if="barPercent==100">
                     <button type="submit"
                         class="submitButton"
                         @click.prevent="this.$router.push({ name: 'get-data'})"
                      >ДАЛЕЕ
                     </button>
-        </p>
+        </div>
       </div>
   </div>
 </template>
@@ -87,8 +89,7 @@ export default {
     }
 
     .submit{
-       
-        
+        margin: 2vh auto 1vh auto;
     }
     .submitButton{
         font-size: 14px;
