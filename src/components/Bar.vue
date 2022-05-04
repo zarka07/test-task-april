@@ -21,7 +21,7 @@ export default {
         float:left;
         width: 100%;
         background-color: #F3F4F8;
-        margin-top:2em;
+        margin-top:1vh;
         margin-bottom:2em;
         box-shadow: inset 0px 4px 2px rgba(0, 0, 0, 0.1);
     }

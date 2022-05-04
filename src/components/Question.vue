@@ -198,6 +198,7 @@ export default {
     .form{
         width:100%;
     }
+
     .formTitle{
         background-color: rgb(52, 59, 77);
         color: white;
@@ -205,6 +206,7 @@ export default {
         padding: 1.5em;
         font-size: 17px;
     }
+
     .formDescription{
         font-size: 14px;
         padding:1em;
@@ -212,13 +214,16 @@ export default {
         font-family: 'Roboto';
         font-weight: 400;
     }
+
     .container{
         display: flex;
     }
+
     .submit{
         text-align: center;
         
     }
+
     .submitButton{
         font-size: 14px;
         font-weight: 700;
@@ -247,6 +252,7 @@ export default {
         opacity: 0;
         
     }
+
     .custom-checkbox+label {
     display: inline-flex;
     align-items:center;
@@ -255,7 +261,7 @@ export default {
     font-weight: 500;
     font-size: 18px;
   }
-  /* создание в label псевдоэлемента  before со следующими стилями */
+  
   .custom-checkbox+label::before {
     
     content: '';
@@ -272,16 +278,16 @@ export default {
     background-size: 50% 50%;
     background-color:#FFF
   }
-    
-  /* стили для радиокнопки, находящейся в состоянии checked */
+ 
   .custom-checkbox:checked+label::before {
     background-color: #FFF;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e");
   }
-  /* стили для радиокнопки, находящейся в состоянии disabled */
+ 
   .custom-checkbox:disabled+label::before {
     background-color: #FFF;
   }
+  
   .custom-checkbox:checked+label{
       color:rgb(49, 93, 250);
       font-weight: 700 bold;

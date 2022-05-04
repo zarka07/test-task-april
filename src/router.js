@@ -11,18 +11,12 @@ const routes = [
 		path: '/dataprocesing',
 		name: 'data-processing',
 		component: () => import(/* webpackChunkName: "DataProcessing.vue", webpackMode: "lazy" */'./views/DataProcessing.vue')
-	}
-	
-	// {
-	// 	path: '/project3/product/:id',
-	// 	name: 'ProductId',
-	// 	props: true,
-	// 	// route level code-splitting
-	// 	// this generates a separate chunk (about.[hash].js) for this route
-	// 	// which is lazy-loaded when the route is visited.
-	// 	component: () => import(/* webpackChunkName: "Product.vue", webpackMode: "lazy" */'./components/Project3/Product.vue')
-	// }, 
-	
+	},
+	{
+		path: '/getdata',
+		name: 'get-data',
+		component: () => import(/* webpackChunkName: "GetData.vue", webpackMode: "lazy" */'./views/GetData.vue')
+	} 
 ];
 
 const router = createRouter({
