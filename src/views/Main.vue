@@ -78,7 +78,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;text-align:left',
+                                style:'flex-direction: column;gap:30px;text-align:left;',
                                 title: 'Подскажите, мучает ли вас бессонница в последнее время?',
                                 value:'sleep',
                                 type: 'radio'
@@ -91,7 +91,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;text-align:left',
+                                style:'flex-direction: column;gap:30px;text-align:left;',
                                 title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',
                                 value:'planning',
                                 type: 'radio'
@@ -104,7 +104,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;text-align:left',
+                                style:'flex-direction: column;gap:30px;text-align:left;',
                                 title: 'Какой вы видите свою жизнь через 5 лет?',
                                 value:'life',
                                 type: 'radio'
@@ -119,7 +119,7 @@ export default {
                         },
                         {
                             description:{
-                                style:'flex-direction: column;gap:30px;text-align:center',
+                                style:'flex-direction: column;gap:30px;text-align:center;',
                                 title: 'Введите дату своего рождения:',
                                 value:'dateOfBirth',
                                 type: 'select',
@@ -169,11 +169,11 @@ export default {
 
 <style scoped>
     .container{
-        display:flex;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
         padding-left: 10px;
         padding-right: 10px;
+        max-width: 375px;
     }
 
     .koleso{
@@ -215,7 +215,7 @@ export default {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top:-90px;
+        margin-top:-95px;
     } 
 
     .title{

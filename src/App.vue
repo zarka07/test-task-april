@@ -35,6 +35,8 @@ body {
 }
 .wrapper{
   min-height: 100%;
-  /* margin-bottom:-50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

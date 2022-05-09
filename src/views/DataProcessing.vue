@@ -76,7 +76,8 @@ export default {
 
 <style>
     .dataProcessing{
-        margin: 30px 10px 10px 10px;
+        margin: 20px 10px 10px 10px;
+        width: 90%;
     }
 
     span{

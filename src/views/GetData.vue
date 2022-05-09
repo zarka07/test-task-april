@@ -100,6 +100,7 @@ export default {
 <style scoped>
   .getData{
     margin:10px;
+    max-width: 375px;
   }
   .greeting{
     text-align: start;
@@ -108,7 +109,7 @@ export default {
         font-size: 18px;
         line-height: 22px;
         color: #315DF9;
-        margin:2vh 1vw 2vh 2vw;
+        margin:2vh 1vw 2vh .6vw;
   }
 
   .year{
@@ -128,12 +129,12 @@ export default {
   .button-menu {
    display:inline-flex;
    justify-content: center;
-  width:95%;
+   width:97%;
    border:0;
    background-color:#315DFA;
    height:8vh;
-  padding-top:1.1vh;
- }
+   padding-top:1vh;
+  }
 
  .button-label {
    text-transform:uppercase;

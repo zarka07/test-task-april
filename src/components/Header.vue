@@ -43,6 +43,7 @@ export default {
         color: #AFDCE5;
         font-weight: 700;
         height: auto;
+        width: 100%;
     }
     
     .subHeader{

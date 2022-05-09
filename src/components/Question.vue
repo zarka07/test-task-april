@@ -197,6 +197,7 @@ export default {
 
     .container{
         display: flex;
+        width: 95%;
     }
 
     select{
