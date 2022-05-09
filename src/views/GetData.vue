@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="getData">
     <p style="text-align: left;font-weight:700;margin-left:1vh">Спасибо за ваши ответы</p>
     <p class="greeting">
       Поздравляем! Прослушать свой персональный гороскоп возможно уже сейчас!
@@ -13,7 +13,7 @@
       Что бы прослушать аудио-сообщение, необходимо нажать на кнопку ниже и Позвонить со своего мобильного телефона. Позвоните и Прослушайте очень серьезную информацию!
     </div>
 
-    <div class="getapi">        
+    <div class="getApiButton">        
       <button class="button-menu" @click.prevent="getApi">
         <span class="menu-icon">
           <img src="../assets/Vector.png" class="img"/>
@@ -97,7 +97,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .getData{
+    margin:10px;
+  }
   .greeting{
     text-align: start;
         font-style: normal;
@@ -143,8 +146,9 @@ export default {
    margin-top:1vh;
  }
 
- .getapi{
+ .getApiButton{
    margin-top:4vh;
+   text-align: center;
  }
 
  table {

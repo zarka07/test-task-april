@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="wrapper">
   <Header/>
   <router-view/>
   <Footer/>
@@ -31,7 +31,10 @@ export default {
 }
 html,
 body {
-  height: 100%;
+  margin: 0px;
 }
-
+.wrapper{
+  min-height: 100%;
+  /* margin-bottom:-50px; */
+}
 </style>

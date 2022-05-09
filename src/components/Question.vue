@@ -21,10 +21,11 @@
                             </div>
                         <div v-else class="custom-picker">
                             <select id="day" v-model="selectedDate.day">
-                                <option disabled value="">День</option>
+                                <option disabled value="null">День</option>
                                 <option 
                                     v-for="(value, index) in 31" 
                                     :key="index" 
+                                    :value="value"
                                     class="option"
                                 >{{index+1}}
                                 </option>
@@ -219,11 +220,8 @@ export default {
         font-weight: 400;
     }
 
-    
-
     .submit{
         text-align: center;
-        
     }
 
     .submitButton{

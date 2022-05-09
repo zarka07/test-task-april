@@ -21,7 +21,7 @@ export default {
         float:left;
         width: 100%;
         background-color: #F3F4F8;
-        margin-top:5vh;
+        margin-top:3vh;
         margin-bottom:5vh;
         box-shadow: inset 0px 4px 2px rgba(0, 0, 0, 0.1);
     }
@@ -36,5 +36,6 @@ export default {
     .percent{
         font-size:14px;
         padding-top: 2vh;
+        margin-left:6vw;
     }
 </style>

@@ -7,9 +7,12 @@
             :barProgress="barProgress"
         ></progress-bar>
 
-        <div class="img" v-if="showImg">
-            <img alt="logo" src="../assets/goroskop.png">
-        
+        <div v-if="showImg">
+            <div class="img" >
+                <img alt="koleso" class="rot koleso" src="../assets/koleso.png">
+                <img alt="logo" class="goroskop" src="../assets/goroskop.png">
+            </div>
+            
             <div class="title">
                 Узнайте, как 2021 год изменит жизнь каждого из нас!
             </div>
@@ -169,14 +172,51 @@ export default {
         display:flex;
         flex-direction: column;
         justify-content: center;
-        /* align-items:center; */
         padding-left: 10px;
         padding-right: 10px;
     }
-    img{
-        margin-top: 1vh;
-        width:100%;
+
+    .koleso{
+        position: relative;
+        height: 200px;
+        top: 115px;
+        left:-70px;
     }
+
+    img.rot {
+        animation: 15s linear 0s normal none infinite running rot;
+        -webkit-animation: 15s linear 0s normal none infinite running rot;
+        
+    }
+    @keyframes rot {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes rot {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .goroskop{
+        width: 355px;
+        height: 210px;
+    }
+
+    img{
+        margin-top: 1.5vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:-90px;
+    } 
 
     .title{
         text-align: start;
