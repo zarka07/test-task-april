@@ -16,7 +16,7 @@
                                 :checked="question.checked"
                                 :value="questions.description.value"
                                 :type="questions.description.type" 
-                                @click="showButton(question.checked)">
+                                @click="showButton(), question.checked=true">
                             <label :for="question.id"> {{question.answer}}</label>
                             </div>
                         <div v-else class="custom-picker">
@@ -82,7 +82,7 @@ export default {
             showSubmit:false,
             title:'',
             style:'',
-            
+            checked: false,
             years:[
                 1990,
                 1991,
@@ -109,8 +109,7 @@ export default {
         }
     },
     methods:{
-        showButton(value){
-            console.log(value)
+        showButton(){
             this.showSubmit = true;
         },
         submit(){
