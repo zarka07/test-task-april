@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="container">
         <progress-bar v-if="showProgress" 
             :barPercent="barPercent" 
             :barColor="barColor" 
@@ -50,10 +50,12 @@ export default {
                             description:{
                                 style:'flex-direction: row;justify-content: space-around;text-align:left',
                                 title: 'Укажите свой пол:',
+                                value: 'gender',
+                                type: 'radio'
                             },
                             questions:[
-                                {id:'id0', answer:'Женщина', type: 'radio'},
-                                {id:'id1', answer:'Мужчина', type: 'radio'}
+                                {id:'id0', answer:'Женщина', checked: false},
+                                {id:'id1', answer:'Мужчина', checked: false}
                             ]
                             
                         },
@@ -61,46 +63,54 @@ export default {
                             description:{
                                 style:'flex-direction: column;gap:30px;justify-content: flex-start;text-align:left',
                                 title: 'В какое время суток вы чувствуете себя наиболее комфортно?',
+                                value:'time',
+                                type: 'radio', 
                             },
                             questions:[
-                                {id:'id0', answer:'Утро', type: 'radio'},
-                                {id:'id1', answer:'Ночь', type: 'radio'},
-                                {id:'id2', answer:'Вечер', type: 'radio'},
-                                {id:'id3', answer:'День', type: 'radio'}
+                                {id:'id0', answer:'Утро', checked: false},
+                                {id:'id1', answer:'Ночь', checked: false},
+                                {id:'id2', answer:'Вечер', checked: false},
+                                {id:'id3', answer:'День', checked: false}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Подскажите, мучает ли вас бессонница в последнее время?',
+                                value:'sleep',
+                                type: 'radio'
                             },
                             questions:[
-                                {id:'id0', answer:'Да', type: 'radio'},
-                                {id:'id1', answer:'Нет', type: 'radio'},
-                                {id:'id2', answer:'Иногда', type: 'radio'}
+                                {id:'id0', answer:'Да', checked: false},
+                                {id:'id1', answer:'Нет', checked: false},
+                                {id:'id2', answer:'Иногда', checked: false}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Чувствуете ли вы в последнее время, что вам никак не удается осуществить ваши планы?',
+                                value:'planning',
+                                type: 'radio'
                             },
                             questions:[
-                                {id:'id0', answer:'Да', type: 'radio'},
-                                {id:'id1', answer:'Нет', type: 'radio'},
-                                {id:'id2', answer:'Иногда', type: 'radio'}
+                                {id:'id0', answer:'Да', checked: false},
+                                {id:'id1', answer:'Нет', checked: false},
+                                {id:'id2', answer:'Иногда', checked: false}
                             ]
                         },
                         {
                             description:{
                                 style:'flex-direction: column;gap:30px;text-align:left',
                                 title: 'Какой вы видите свою жизнь через 5 лет?',
+                                value:'life',
+                                type: 'radio'
                             },
                             questions:[
-                                {id:'id0', answer:'Брак, семья, дети, дом', type: 'radio'},
-                                {id:'id1', answer:'Путешествия по миру', type: 'radio'},
-                                {id:'id2', answer:'Успешная карьера', type: 'radio'},
-                                {id:'id3', answer:'Всё вместе', type: 'radio'}
+                                {id:'id0', answer:'Брак, семья, дети, дом', checked: false},
+                                {id:'id1', answer:'Путешествия по миру', checked: false},
+                                {id:'id2', answer:'Успешная карьера', checked: false},
+                                {id:'id3', answer:'Всё вместе', checked: false}
                             ]
                             
                         },
@@ -108,9 +118,11 @@ export default {
                             description:{
                                 style:'flex-direction: column;gap:30px;text-align:center',
                                 title: 'Введите дату своего рождения:',
+                                value:'dateOfBirth',
+                                type: 'select',
                             },
                             questions:[
-                                {id:'id0', answer:'date', type: 'select'},
+                                {id:'id0', answer:'date', },
                             ]
                             
                         },
@@ -118,6 +130,7 @@ export default {
                             description:{
                                 style:'',
                                 title: '',
+                                value:'',
                             },
                             questions:[
                                 {id:'', answer:'', type: ''},
@@ -151,10 +164,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    .container{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items:center; */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     img{
         margin-top: 1vh;
-        width:98%;
+        width:100%;
     }
 
     .title{
@@ -173,7 +194,7 @@ export default {
         margin:2vh 1vw 2vh 1vw;
         font-style: normal;
         font-weight: 400;
-        font-size: 18.5px;
+        font-size: 17px;
         color: #343B4D;
         
     }

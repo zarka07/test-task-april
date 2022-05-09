@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div>
   <Header/>
   <router-view/>
   <Footer/>
@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
@@ -34,8 +34,4 @@ body {
   height: 100%;
 }
 
-.wrapper {
-  position: relative;
-  min-height: 100%;
-}
 </style>

@@ -1,6 +1,6 @@
   
 <template>
-    <div>
+    <div style="width:100%">
         <form class="form">
             <div class="formTitle" 
                 :title="questions.description.title">
@@ -9,12 +9,14 @@
             <div class="formDescription">
                 <div class="container" :style="questions.description.style" >
                     <div v-for="(question, index) in questions.questions" :key="index">
-                        <div v-if="question.type==='radio'">
+                        <div v-if="questions.description.type==='radio'">
                             <input :id="question.id"
                                 class="custom-checkbox"
                                 name="name"
-                                :type="question.type" 
-                                @click="showButton()">
+                                :checked="question.checked"
+                                :value="questions.description.value"
+                                :type="questions.description.type" 
+                                @click="showButton(question.checked)">
                             <label :for="question.id"> {{question.answer}}</label>
                             </div>
                         <div v-else class="custom-picker">
@@ -80,6 +82,7 @@ export default {
             showSubmit:false,
             title:'',
             style:'',
+            
             years:[
                 1990,
                 1991,
@@ -106,7 +109,8 @@ export default {
         }
     },
     methods:{
-        showButton(){
+        showButton(value){
+            console.log(value)
             this.showSubmit = true;
         },
         submit(){
@@ -191,33 +195,32 @@ export default {
         font-weight: 300;
     }
 
-    select{
-        padding-left:1em;
+    .container{
+        display: flex;
     }
 
-    .form{
-        width:100%;
+    select{
+        padding-left:1em;
     }
 
     .formTitle{
         background-color: rgb(52, 59, 77);
         color: white;
         font-weight: 500 Medium;
-        padding: 1.5em;
+        padding: 15px;
         font-size: 17px;
+        text-align: center;
     }
 
     .formDescription{
         font-size: 14px;
-        padding:1em;
+        padding:20px;
         background-color:rgba(225, 226, 230, 0.954);
         font-family: 'Roboto';
         font-weight: 400;
     }
 
-    .container{
-        display: flex;
-    }
+    
 
     .submit{
         text-align: center;
