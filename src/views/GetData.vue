@@ -109,7 +109,7 @@ export default {
         font-size: 18px;
         line-height: 22px;
         color: #315DF9;
-        margin:2vh 1vw 2vh .6vw;
+        margin:7px;
   }
 
   .year{

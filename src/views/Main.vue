@@ -238,8 +238,5 @@ export default {
         font-weight: 400;
         font-size: 17px;
         color: #343B4D;
-        
-    }
-
-    
+    } 
 </style>

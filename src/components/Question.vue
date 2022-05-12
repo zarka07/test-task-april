@@ -1,6 +1,6 @@
   
 <template>
-    <div style="width:100%">
+    <div>
         <form class="form">
             <div class="formTitle" 
                 :title="questions.description.title">
@@ -191,7 +191,6 @@ export default {
         text-align: center;
         color: #D0060E;
         background-color: #FFD8CF;
-        font-family: 'Roboto';
         font-weight: 300;
     }
 
@@ -207,7 +206,7 @@ export default {
     .formTitle{
         background-color: rgb(52, 59, 77);
         color: white;
-        font-weight: 500 Medium;
+        font-weight: 500;
         padding: 15px;
         font-size: 17px;
         text-align: center;
@@ -217,7 +216,6 @@ export default {
         font-size: 14px;
         padding:20px;
         background-color:rgba(225, 226, 230, 0.954);
-        font-family: 'Roboto';
         font-weight: 400;
     }
 
@@ -232,7 +230,7 @@ export default {
         background-color:#315DFA;
         border:0;
         height: 45px;
-        width:50vw;
+        width:100%;
     }
 
     .custom-picker{
@@ -258,7 +256,6 @@ export default {
     display: inline-flex;
     align-items:center;
     user-select: none;
-    font-family: 'Roboto';
     font-weight: 500;
     font-size: 18px;
   }
@@ -291,8 +288,7 @@ export default {
   
   .custom-checkbox:checked+label{
       color:rgb(49, 93, 250);
-      font-weight: 700 bold;
-      font-family: 'Roboto';
+      font-weight: 700;
       font-style: normal;
   }
 
@@ -303,7 +299,6 @@ export default {
 
   .zodiac-description{
       margin-top: 0;
-      font-family: 'Roboto';
       font-size: 12px;
       font-weight: 400;
   }

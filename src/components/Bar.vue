@@ -3,7 +3,7 @@
     <div class="Progress" >
         <div class="bar"
             :style = "{background:barColor, width:barPercent+'%', height: barHeight+'px'}">
-            <div class="percent" :barProgress="barProgress"> <b>{{barProgress}}</b></div>
+            <div class="percent"> <b>{{barProgress}}</b></div>
         </div>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
         background-color: #F3F4F8;
         margin-top:3vh;
         margin-bottom:5vh;
-        box-shadow: inset 0px 4px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 4px 2px rgba(0, 0, 0, 0.1);
     }
 
     .bar {

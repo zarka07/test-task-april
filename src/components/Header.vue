@@ -1,13 +1,11 @@
 <template>
     <div class="header">
-        <div class="container">
             <div class="subHeader">
-                НОВЫЙ ГОРОСКОП НА 2021 ГОД!
+                НОВЫЙ ГОРОСКОП НА 2023 ГОД!
             </div>
             <p class="subheader">
                 Узнайте, что вас ждет
             </p>
-        </div>
     </div>
 </template>
 
@@ -22,20 +20,20 @@ export default {
 
 <style scoped>
     @media only screen and (max-width: 412px) {
-        .container{
-            align-items:baseline;
+        .header{
+            justify-content: flex-end;
+            align-items:flex-start;
+        }
+        .subHeader{
+            margin-left:12px;
         }
     }
 
     @media only screen and (min-width: 415px) {
-        .container{
+        .header{
+            justify-content: center;
             align-items:center;
         }
-    }
-
-    .container{
-        display: flex;
-        flex-direction: column; 
     }
 
     .header{
@@ -44,6 +42,8 @@ export default {
         font-weight: 700;
         height: auto;
         width: 100%;
+        display: flex;
+        flex-direction: column;
     }
     
     .subHeader{
@@ -51,7 +51,6 @@ export default {
         font-weight: 700;
         font-size: 20px;
         color: #AFDCE6;
-        margin-left:12px;
     }
 
     .subheader{
