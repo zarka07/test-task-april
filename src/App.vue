@@ -32,11 +32,14 @@ export default {
 html,
 body {
   margin: 0px;
+  height:100%;
 }
 .wrapper{
+  position:relative;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 90px;
 }
 </style>

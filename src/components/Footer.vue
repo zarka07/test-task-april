@@ -1,6 +1,6 @@
 <template>
         <div class="footer">
-            2020 © horoscop personal
+            2022 © horoscop personal
         </div>
 </template>
 
@@ -15,13 +15,15 @@ export default {
 
 <style>
     .footer{
-        position:relative;
-        text-align: center;
-        height:1.5em; 
+        position: absolute;
+        left: 0;
         bottom: 0;
-        padding: 10px;
-        color: rgba(225, 226, 230, 0.954);
         width: 100%;
+        height: 80px;
+        text-align: center;
+        /* height:auto;  */
+        color: rgba(225, 226, 230, 0.954);
+        
     }
     
 </style>
